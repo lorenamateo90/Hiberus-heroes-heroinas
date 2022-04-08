@@ -1,0 +1,81 @@
+/* TAGS */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+form{
+    padding: 40px;
+    border: 2px solid grey;
+}
+
+input{
+    margin: 20px 0 20px 0px;
+    border:none;
+    border-bottom: 2px solid red;
+}
+
+select{
+    margin-bottom:20px;
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid grey;
+    color: grey;
+
+}
+
+textarea{
+    border:none;
+    border-bottom: 2px solid red;
+    margin: 10px 0 20px 0px;
+}
+
+
+button{
+    padding: 20px 65px;
+    text-transform: uppercase;
+    color: white;
+    background-color: grey;
+    border:none;
+}
+
+/* CLASSES */
+
+.selectWrapper{
+    position: relative;
+    width: 200px;
+}
+
+.selectWrapper::after{
+    font-size: 13px;
+    content: "<>";
+    color: grey;
+    right: 130px;  
+    top:12px;
+    transform: rotate(90deg);
+    position:absolute;
+    z-index:0;
+}
+
+
+/* Validar datos del formulario */
+
+input:valid, textarea:valid{
+    border-bottom-color: green;
+}
+
+input:invalid, textarea:invalid{
+    border-bottom-color: red;
+}

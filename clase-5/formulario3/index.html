@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <h1>Checkout</h1>
+    <form action="#" method="post">
+        <fieldset>
+            <h2>Shipping Address</h2>
+            <div class="doubleInput">
+                <div>
+                    <label for="firstName">First name:<span>*</span></label>
+                    <input type="text" id="firstName" name="firstName">
+                </div>
+                <div>
+                    <label for="lastName">Last name:<span>*</span></label>
+                    <input type="text" id="lastName" name="lastName">
+                </div>
+
+            </div>
+            <div class="singleInput">
+                    <label for="address">Address:<span>*</span></label>
+                    <input type="text" id="address" name="address">
+            </div>
+            <div class="doubleInput">
+                <div>
+                    <label for="postCode">Postcode:<span>*</span></label>
+                    <input type="text" id="postCode" name="postCode" maxlength="5">
+                </div>
+                <div>
+                    <label for="country">Country:<span>*</span></label>
+                    <div class="selectWrapper">
+                        <select name="country" id="country">
+                            <option value="england">England</option>
+                            <option value="spain">Spain</option>
+                            <option value="france">France</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <h2>Shipping method</h2>
+            <div class="radio">
+                <input id="standard" type="radio" name="shippingMethod" value="standard">
+                <label for="standard">Standard</label>
+            </div>
+            <div class="radio">
+                <input id="nextDay" type="radio" name="shippingMethod" value="nextday">
+                <label for="nextDay">Next day</label>
+            </div> 
+        </fieldset>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

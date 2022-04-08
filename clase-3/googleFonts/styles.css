@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&display=swap');
+ 
+ /* TAGs */
+
+ *{
+     margin: 0;
+ }
+
+ div{
+    background: #689295;
+    color: white;
+    text-align: center;
+    margin: 15px;
+    padding: 100px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+ }
+
+ section{
+     display: grid;
+     grid-template-columns: auto auto auto auto;
+ }
+

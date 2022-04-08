@@ -1,0 +1,22 @@
+
+*{
+    margin:0;
+}
+
+p.warning{
+    display: none;
+    background: yellow;
+    padding: 10px;
+    font-size: 25px;
+}
+
+@media (orientation:landscape) and (min-width: 400px) and (max-width: 768px) {
+    p.warning{
+        display: block;
+    }
+}
+
+img{
+    width: 100%;
+    height: auto;
+}

@@ -1,0 +1,55 @@
+/* TAGS/ETIQUETAS */
+
+*{
+    margin: 0;
+    width: 100%;
+}
+
+body{
+    margin: 50px auto;
+    width: 80%;
+    background-color: rgb(222, 222, 216) !important;
+    /* !important siempre anula el resto de propiedades, incluso las del id */
+}
+
+iframe {
+    border-width: 5px;
+    border-style: dashed;
+    border-color: #ccc;
+    /* forma acortada de ponerlo -> border: 5px solid #ccc; */
+}
+
+a{
+ padding: 5px;
+}
+
+section.space25 > p {
+    margin-top:  3px;
+}
+
+
+/* ID */
+
+#madrid {
+    text-align: center;
+}
+
+#container{
+    font-size: 25px;
+}
+
+/* CLASES */
+
+.unlined{
+    text-decoration: none;
+}
+
+.space10{
+    padding:10px
+}
+
+.space25{
+    padding: 25px;
+}
+
+/* El elemento HTML <iframe> (de inline frame) representa un contexto de navegación anidado, el cual permite incrustrar otra página HTML en la página actual.  /*
