@@ -30,19 +30,31 @@
                 min-width:128px;
                 margin-left: 8px;
             }
+
+            [data-state = 'playing'] #playBtn,
+            [data-state = 'paused'] #pauseBtn
+             {
+                display: none;
+            }
+
         </style>
         
     </head>
     <body>
-        <video
-            id="video1" preload="metadata">
-                <source src="./assets/Volcano_Lava_Sample.webm" 
-                        type="video/webm">
-            Este navegador no soporta estos codecs de video
-        </video>
-        <div class="controls">
-            <button id="playBtn" class="button">Play</button>
-            <button id="pauseBtn" class="button">Pause</button>
+        <div class="mediaPlayer" id="mediaPlayer">
+            <video
+                id="video1" preload="metadata">
+                    <source src="./assets/Volcano_Lava_Sample.webm" 
+                            type="video/webm">
+                Este navegador no soporta estos codecs de video
+            </video>
+            <div class="controls">
+                <button id="playBtn" class="button">Play</button>
+                <button id="pauseBtn" class="button">Pause</button>
+            </div>
+            <div class="status">
+                <span class="played">00:00</span> / <span class="duration">00:00</span>
+            </div>
         </div>
         <script type="text/javascript"
                 src="./scripts/media.js"></script>

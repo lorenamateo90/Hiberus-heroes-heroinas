@@ -1,0 +1,131 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    color: grey;
+    font-family:'Times New Roman', Times, serif;
+}
+
+header{
+    background-color: rgb(71, 69, 69);
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    padding: 20px;
+}
+
+header > h1{
+    text-transform: capitalize;
+}
+
+.navMenu{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+
+nav a{
+    margin-right: 15px;
+    text-decoration:none;
+    color:inherit;
+} 
+
+nav li{
+    display: inline-block;
+    color:#fff;
+}
+
+aside{
+    width: 30%;
+    float: left;
+    line-height: 1.8;
+    margin: 25px;
+} 
+
+section li {
+    list-style: none;
+}
+
+main{
+    width: 65%;
+    margin-left: 200px;
+}
+
+main > h3{
+    margin-top: 20px;
+}
+
+.containerCards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+}
+.card{
+    display:inline-block;
+    border: 1px solid black;
+    margin: 5px;
+    padding:10px;
+}
+
+.imageCard{
+    width: 300px;
+    height: auto;
+}
+
+.gameControl{
+    font-size: 10px;
+    text-align: center;
+    margin: 10px 0 0 10px;
+    line-height: 1.9;
+}
+
+.description{
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+
+.moreinfoButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    font-size: 12px;
+
+}
+
+.moreinfoButton > input{
+    color: white;
+    background-color: rgb(49, 81, 156);
+    border: none;
+    padding: 1px;
+    text-transform: capitalize;
+    font-size: 10px;
+    padding: 6px 4px 6px 4px;
+    margin-left: 3px;
+}
+
+footer{
+    background-color: rgb(71, 69, 69);
+    padding: 20px;
+    line-height: 1.6;
+}
+
+footer ul{
+    display: flex;
+    flex-direction: column;
+}
+
+footer a {
+    text-decoration:none;
+    color: #fff;
+}
+
+footer li {
+    list-style: none;
+} 
+

@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    color: grey;
+    font-family:'Times New Roman', Times, serif;
+}
+
+header{
+    background-color: rgb(71, 69, 69);
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    padding: 30px;
+}
+
+header > h1{
+    text-transform: capitalize;
+}
+
+.navMenu{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+
+nav a{
+    margin-right: 15px;
+    text-decoration:none;
+    color:inherit;
+} 
+
+nav li{
+    display: inline-block;
+    color:#fff;
+}
+
+aside{
+    width: 30%;
+    float: left;
+    line-height: 1.8;
+    margin: 25px;
+} 
+
+section li {
+    list-style: none;
+}
+
+main{
+    width: 65%;
+    height: 70vh;
+    margin-left: 200px;
+}
+
+main article {
+    margin: 40px;
+}
+
+.sectionCard{
+    margin: 40px;
+}
+
+.card{
+    display: inline-block;
+    border: 1px solid black;
+    margin: 20px 0 40px 0;
+    padding:10px;
+}
+
+.imageController{
+    width: 150px;
+    height: auto;
+}
+
+.containerInfo{
+ display: flex;
+ flex-direction: row;
+ font-size: 10px;
+}
+
+.gameControl{
+    font-size: 14px;
+    text-align: center;
+    margin: 20px 0 0 10px;
+    line-height: 1.9;
+}
+
+.containerDetails{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.description{
+    width: 75%;
+    margin-left: 20px;
+}
+
+.moreInfo{
+    text-transform: capitalize;
+    margin-top: 10px;
+}
+
+caption{
+    line-height: 2;
+    border-bottom: 1px solid grey;
+}
+
+td {
+    padding: 13px;
+}
+
+footer{
+    background-color: rgb(71, 69, 69);
+    padding: 20px;
+    line-height: 1.6;
+}
+
+footer a {
+    text-decoration:none;
+    color: #fff;
+}
+
+footer li {
+    list-style: none;
+}

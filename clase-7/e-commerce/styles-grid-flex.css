@@ -1,0 +1,96 @@
+/* troncal */
+html {
+    background: #f7f7f7;
+}
+  
+body {
+    font-family: 'Barlow', sans-serif;
+    background: white;
+    margin: 0 auto;
+    color: rgb(49, 46, 46);
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+header, footer {
+    background: #333a40;
+    color: white;
+    padding: 20px 10px;
+    grid-column: 1/-1;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main h2 {
+    width: 100%;
+}
+
+input[type="search"] {
+    width: 100%;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    line-height: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: #0e69e9;
+}
+
+header li {
+    display: inline;
+}
+
+header h1, nav {
+    display: inline-block;
+}
+
+header h1 {
+    width: 100%;
+}
+
+.product {
+    box-sizing:border-box;
+    border: 1px solid grey;
+    margin: 5px;
+    padding: 5px;
+    width: 30%;
+    min-width: 150px;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+}
+
+.button {
+    padding: 10px;
+    display: inline-block;
+}
+
+.button:last-of-type {
+    background: #0e6969;
+    color: white;
+}
+
+/* product detail */
+
+
+
+
+

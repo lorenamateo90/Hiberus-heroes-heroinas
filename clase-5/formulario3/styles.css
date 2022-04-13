@@ -1,16 +1,10 @@
-/* TAGS */
 
-*{
-    margin: 0;
+body {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 30px;
-}
-
-fieldset{
-    border:0;
+fieldset {
+    border: 0;
     padding: 0;
 }
 
@@ -18,22 +12,23 @@ fieldset > div {
     margin-bottom: 30px;
 }
 
-label{
+label {
     display: block;
     margin-bottom: 10px;
 }
 
-label span{
+label span {
     color: red;
 }
 
-input, select {
-    border: 1px solid grey;
+input,
+select {
+    border: 1px solid gray;
     padding: 10px;
     width: 200px;
 }
 
-select{
+select {
     background: transparent;
     border-radius: 0;
     box-shadow: none;
@@ -41,56 +36,56 @@ select{
     width: 100%;
 }
 
-input:valid{
-    border: 2px solid green;
-}
-
-input:invalid{
-    border: 2px solid red;
-}
-
-button{
-    text-transform: uppercase;
-    color: white;
-    background-color: green;
-    border:none;
-    width: 225px;
-    padding: 10px;
-}
-
-/* CLASSES */
-
-.singleInput{
-    width: 439px;
-}
-
-.doubleInput{
-    display: flex;
-}
-
-.doubleInput > div {
-   margin-right: 15px;
-}
-
-.selectWrapper{
+.select-wrapper {
     position: relative;
     width: 222px;
 }
 
-.selectWrapper::after{
-    font-size: 14px;
-    content: "<>";
-    color: grey;
-    right: 5px;  
-    top:13px;
-    transform: rotate(90deg);
-    position:absolute;
-    z-index:1;
+.select-wrapper::after {
+    content: "< >";
     background-color: white;
+    color: #666;
+    font-size: 14px;
+    top: 8px;
+    right: 0;
+    transform: rotate(90deg);
+    position: absolute;
+    z-index: 1;
+
 }
 
-.radioInput{
+.single-input input {
+    width: 439px;
+}
+
+.double-input {
+    display: flex;
+}
+
+.double-input > div {
+    margin-right: 15px;
+}
+
+.radio input {
     float: left;
     width: auto;
     margin-right: 10px;
 }
+
+button {
+    background: green;
+    border: 0;
+    color: white;
+    width: 225px;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+input:valid {
+    border: 2px solid green;
+}
+
+input:invalid {
+    border: 2px solid red;
+}
+
