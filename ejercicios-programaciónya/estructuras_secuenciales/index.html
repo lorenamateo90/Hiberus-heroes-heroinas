@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        //ejercicio 1
+        let lado;
+        lado = prompt('Ingrese medida del lado:');
+        var perimetro;
+        perimetro = parseInt(lado) * 4;
+        document.write('El perimetro del cuadrado es:');
+        document.write(perimetro);
+        document.write('<br>');
+
+        //ejercicio 2
+        let primerNumero = prompt('Ingrese el primer numero: ');
+        let segundoNumero = prompt('Ingrese el segundo numero: ');
+        let tercerNumero = prompt('Ingrese el tercer numero: ');
+        let cuartoNumero = prompt('Ingrese el cuarto numero: ');
+        let sumaEjerc2 = parseInt(primerNumero) + parseInt(segundoNumero);
+        document.write('La suma de los dos primeros numeros es: ');
+        document.write(sumaEjerc2);
+        document.write('<br>');
+        let productoEjer2 = parseInt(tercerNumero) * parseInt(cuartoNumero);
+        document.write('El producto de los dos ultimos numeros es: ');
+        document.write(productoEjer2);
+
+        //ejercicio3
+
+        let num1 = prompt('Ingrese primer valor:');
+        let num2 = prompt('Ingrese segundo valor:');
+        let num3 = prompt('Ingrese tercer valor:');
+        let num4 = prompt('Ingrese cuarto valor:');
+
+        let sumaEjerc3 = parseInt(num1) + parseInt(num2) + parseInt(num3) + parseInt(num4);
+        let productoEjerc3 = parseInt(num1) * parseInt(num2) * parseInt(num3) * parseInt(num4);
+
+        document.write('La suma de los cuatro valores es:' + sumaEjerc3);
+        document.write('<br>');
+        document.write('El producto de los cuatro valor es:' + productoEjerc3);
+
+        //ejercicio4
+
+        let precio = prompt('Ingrese el precio del artículo escogido');
+        let cantidad = prompt('Ingrese la cantidad de artículos que se va a llevar:');
+        let importe = parseInt(precio) * parseInt(cantidad);
+        document.write('Debe pagar:' + importe);
+   
+
+    </script>
+
+</body>
+</html>
