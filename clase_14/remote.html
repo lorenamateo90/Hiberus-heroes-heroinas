@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesion 3 JS</title>
+</head>
+<body>
+    <script type="module">
+        
+        function getUsers() {
+        // Es asíncrono
+        fetch("https://jsonplaceholder.typicode.com/users") // hace la petición
+          .then((response) => response.json()) // cuando obtenga la respuesta se convierte
+          .then((json) => {            
+            showUserNames(json);            
+          });
+      }
+
+      function showUserNames(userList) {        
+        userList.forEach((user) => {
+          console.log("userName :>> ", user.username);
+        });
+      }      
+
+      getUsers();
+    
+    </script>
+</body>
+</html>

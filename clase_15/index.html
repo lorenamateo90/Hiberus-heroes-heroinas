@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        import * as crud from "./js/crud.js";
+
+        //estructuras de datos
+        //array ok
+        //map - diccionario
+
+        const juan = {
+            dni:"1111111H",
+            nombre: "Juan",
+            apellido: "Lopez"
+        };
+
+        const maria = {
+            dni:"2222222H",
+            nombre: "Maria",
+            apellido: "Perez"
+        };
+
+        const alumnos = new Map();
+        let asignaturas = null;
+        const asignaturasTmp = ["Mates", "Ingles", "Programacion", "Mates", "Fisica", "Frances"];
+
+        function crearAsignaturas (listaAsignaturasOrigen){
+            let conjunto = null;
+            if( listaAsignaturasOrigen){
+                conjunto = new Set(); //variable local
+                for (const asig of listaAsignaturasOrigen){
+                    conjunto.add(asig);
+                }
+            }
+            return conjunto;
+        }
+        //2º forma de hacerlo
+        function crearAsignaturasV2 (listaAsignaturasOrigen){
+            let conjunto = null;
+            if( listaAsignaturasOrigen){
+                conjunto = new Set(listaAsignaturasOrigen); //variable local
+            }
+            return conjunto;
+        }
+
+
+        function listarAsignaturas(asigs){
+            if(asigs){
+                asigs.forEach((asig) => console.log("Asig: ", asig))
+            }
+        };
+
+        //2º forma de hacerlo => asignarAsignaturas V2 explicación 
+        // Lo que se ha hecho aquí es * 
+        // 1. Convertimos el objeto(als) en array con el spread ...y cogemos sus valores con values().
+        // 2. Cuando ya es array se recorre con un map de toda la vida.
+        // 3. Después añadimos a "al" usando el spread(...) la clave -valor; asignaturas: asigs
+        function listarAsignaturasV2(asigs){
+        if(asignaturas) {
+            listarAsignaturas(asignaturas);
+        }
+        };
+
+        //version 1 la más simple
+        // function asignarAsignaturas (als, asigs){
+        // for (const [dni , al ] of als.entries()){ 
+        //  crud.AsignarAsignaturasAlumno(al, asigs);
+        //     }
+        // }
+
+        // version 2 nivel más avanzado
+        function asignarAsignaturasV2 (als, asigs){
+           console.log([...als.values()]);
+           const alumnosActualizados = [...als.values()].map((al) => ({...al, asignaturas: asigs}));
+           //update final
+           for (const al of alumnosActualizados){
+               crud.actualizarDatosAlumno(al, als);
+           }
+        }
+
+        // version 3 nivel más avanzado
+        function asignarAsignaturasV3 (als, asigs){
+         als.forEach((al) => {
+            al.aisgnaturas = asigs;
+        });
+        }
+
+        //crear asignaturas
+        asignaturas = crearAsignaturas(asignaturasTmp);
+        if(asignaturas){
+            listarAsignaturas(asignaturas);
+        }
+
+        //main program
+        crud.matricularAlumno(juan, alumnos);
+        crud.matricularAlumno(maria, alumnos);
+
+
+        //buscar
+        //alumno existente
+        const alumnoBuscado = crud.buscarAlumno("2222222H", alumnos);
+        if (alumnoBuscado){
+            console.log(alumnoBuscado);
+        }
+
+        //dar de baja
+        //juan
+        // crud.darDeBajaAlumno("1111111H", alumnos);
+        //buscar un alumno que no exista
+        const juanAlumno = crud.buscarAlumno("1111111H", alumnos);
+        if( juanAlumno  === null ){
+            console.log ("funciona el sistema de bajas");
+        }
+
+      
+        //limpiar lista
+        // crud.limpiarAlumnos(alumnos);
+
+
+         //listar alumnos
+        //  asignarAsignaturas (alumnos, asignaturas);
+         asignarAsignaturasV2 (alumnos, asignaturas);
+         asignarAsignaturasV3 (alumnos, asignaturas);
+
+         crud.listarAlumnos(alumnos);
+    
+        
+
+    </script>
+</body>
+</html>

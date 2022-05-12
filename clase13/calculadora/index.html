@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Recordatorio JS</title>
+        <script type="module" src="./js/ask.js"></script>
+    </head>
+    <body>
+        <!--
+        <p>
+            Lorem ipsum dolor sit amet consectetur 
+            adipisicing elit. Ex illo dolor doloribus 
+            debitis dolorum nulla doloremque, minima eligendi. 
+            Asperiores nulla modi eaque culpa dolor numquam pariatur
+            expedita natus! Ducimus, reiciendis!
+        </p>
+        -->
+        <script type="module">
+            import obtenerResultado  from "./js/app.js";
+            import { pedirInfoUsuario }  from "./js/ask.js";
+            import { biblio } from "./biblioteca.js";
+            
+            let dato = "Lunes"; //inmutable
+            //alert("Aviso de bienvenida");
+            //document.write(`<strong>Hola a todos. Hoy es ${dato}</strong>`);
+            // console.info("Este es un mensaje de control. Hoy es " + dato);
+
+            dato = "Martes";
+            let info = 90;
+            //document.write(`<strong>Hemos hecho ${info} horas de curso</strong>`);
+
+            //ambito diferente al global
+            {
+                const x = 7;
+                //document.write(`<strong> Hoy haremos ${x} horas</strong>`);
+            }
+
+            //document.write(`<strong> Hoy haremos ${x} horas</strong>`);
+
+            //document.write(`El resultado es ${sumar(10,5)}`);
+            /*
+            console.log("PRE:" + proceso.valor);
+            console.log(`El resultado de la suma es ${proceso.sumar(10,5)}`);
+            console.log("POST sumar:" + proceso.valor);
+            console.log(`El resultado de la resta es ${proceso.restar(10,5)}`);
+            console.log("POST restar:" + proceso.valor);
+            */
+            // const operacion = pedirInfoUsuario("Escriba la operacion (s, r, m, d): ");
+            // const operando1 = parseInt(pedirInfoUsuario("Operando 1: "));
+            // const operando2 = parseInt(pedirInfoUsuario("Operando 2: "));
+
+            // console.log(`El resultado de la operacion es ${obtenerResultado(operacion, operando1, operando2)}`);
+            // console.log(`El resultado de la resta es ${obtenerResultado(operacion, 10, 5)}`);
+
+            //objetos javascript dentro de un array
+            const libroDeAventuras = {
+                titulo: 'Alicia',
+                color: 'amarillo',
+                autor: 'A.J.Perez',
+                numeroPaginas: 110,
+                editorial: 'Deusto',
+                comprar: function(){ console.log(`Libro de aventuras del autor ${this.autor} comprado`)}  
+            };
+
+            const libroDeterror = {
+                titulo: 'Frankestein',
+                color: 'azul',
+                autor: 'C.H.Cuartero',
+                numeroPaginas: 320,
+                editorial: 'Planeta',
+            };
+
+            const libroCocina = {
+                titulo: 'Postres',
+                color: 'rosa',
+                autor: 'A.B.Mateo',
+                numeroPaginas: 250,
+                editorial: 'Tregolam',
+            };
+
+            const libreria = [libroDeAventuras, libroDeterror, libroCocina];
+
+            //filtrar por los libros de más de 150 páginas.
+            const misLibros = new Array();
+
+        // const result = libros.filter(libro => libro.numeroPaginas > 150);
+
+            // for (let libro of libros) { //garantiza el recorrido
+            //     if (libro.numeroPaginas > 150){
+            //         //TODO
+            //         misLibros.push(libro);
+            //     }
+            // }
+            // console.log(misLibros);
+
+            //alternativa objeto biblio
+            biblio.libros = libreria;
+            //console.log (biblio.filtrar(100));
+
+            const libroAutor = biblio.buscarPorAutor('A.B.Mateo')
+            if(libroAutor !== undefined){
+                //console.log("LIBRO_AUTOR ", libroAutor);
+            }else {
+                //console.log("No se ha encontrado el libro de ese autor");
+            };
+
+            //quitar libro
+        //    const fueraLibro = biblio.quitarLibro();
+        //    console.log(fueraLibro);
+        //    console.log(libreria)
+
+           //forrar libros
+            biblio.libros = libreria;
+            // biblio.forrarLibros();
+            // biblio.listarLibros();
+
+           //prestar libros
+           console.log("PRESTAMO***********");
+           const libroDeseado = biblio.prestarLibro('fraNKEstein');
+           libroDeseado !== undefined ? console.log("Titulo del libro deseado: ", libroDeseado.titulo) : console.log("Libro no disponible");
+
+           biblio.listarLibros();
+
+           //pasados unos dias...
+           console.log("DEVOLUCION**********");
+
+         
+
+
+            // console.log("Autor " + libroDeAventuras.autor);
+            libroDeAventuras.editorial = 'Ariel';
+            // console.log("Editorial cambiada: " + libroDeAventuras['editorial']);
+
+            //recorrido por las propiedades de un objeto
+            for(let prop in libroDeAventuras){
+                // console.log(libroDeAventuras[prop]);
+            }
+            
+            // libroDeAventuras.comprar();
+
+        </script>
+        
+    </body>
+</html>

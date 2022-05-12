@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesion 3 JS</title>
+</head>
+<body>
+    <script type="module">
+
+        import {persist} from "./js/persist.js";
+
+        const juan = {
+             id: '111111H',
+             nombre: "Juan",
+             apellido: "Tamariz",
+             curso: 5,
+             nombreCompleto: function(){
+                 //return this.nombre + " " + this.apellido;
+                 return `${this.nombre} ${this.apellido}`
+             },
+        };
+
+        const pedro = {
+             id: '333333H',
+             nombre: "Pedro",
+             apellido: "Sanchez",
+             curso: 5,
+             notaFinal: null,
+             get nombreCompleto(){
+                 return `${this.nombre} ${this.apellido}`
+             },
+             get nombreMayusculas(){
+                 return this.nombre.toUpperCase();
+             },
+             set calificar(valor){
+                 if (valor < 3){
+                    this.notaFinal = valor;
+                 }
+                 
+             }
+        };
+
+        const maria = Object.assign({},juan,{id:'222222H', nombre: 'Maria', apellido: 'Larios'});
+        maria.nombreCompleto = function(){
+                 //return this,nombre + " " + this.apellido";
+                 return `${this.nombre} ${this.apellido}`
+             }
+
+        let alumnos = [juan, maria];
+
+        function guardarAlumnos (...data){
+            // persist.guardar("al_juan", JSON.stringify(juan));
+            // persist.guardar("al_maria", JSON.stringify(maria));
+            persist.guardar("alumnos", JSON.stringify(data));
+        }
+
+        function recuperarAlumnos(){
+            return JSON.parse(persist.recuperar('alumnos'));
+        }
+
+        function verAlumnos(lista){
+            lista.forEach((alumno) => console.log (alumno));
+        }
+
+        //main program
+        guardarAlumnos(juan, maria, pedro); //numero indeterminado de elementos separados por coma
+
+        alumnos = recuperarAlumnos();
+
+        // verAlumnos(undefined);
+
+        // getters y setters
+
+        console.log("NOMBRE_COMPLETO JUAN:", juan.nombreCompleto()); //funcion
+        console.log("NOMBRE_COMPLETO PEDRO:", pedro.nombreCompleto); //funcion
+
+        pedro.calificar = 6.5;
+        console.log(pedro);
+
+        console.log("NOMBRE PEDRO (MAYUSCULAS?):", pedro.nombreCompleto); //funcion
+
+
+     
+
+        // console.log("MARIA:", maria);
+        // console.log("JUAN:", juan);
+
+        //otros usos de Object
+        // console.log(Object.values(maria));
+
+        // let juanCadena = JSON.stringify(juan);
+        // console.log(juanCadena);
+
+        //persistir o almacenar info (info no volatil)
+        // localStorage.setItem('al_juan', juanCadena);
+        // localStorage.setItem('al_maria', JSON.stringify(maria));
+
+        //crear un array que contenga a maria y a juan y persistir dicho array
+        // localStorage.setItem('Alumnos', JSON.stringify(new Array().push(ivan).push(maria))); //1º forma 
+        //localStorage.setItem('alumnos', JSON.stringify([juan, maria])); //2º forma
+
+        //recuperar lo guardado
+        // const juan = JSON.parse (localStorage.getItem('al_juan'));
+        // if(juan !== null) {
+        //     console.log(juan.nombre);
+        // }
+
+        // const maria = JSON.parse (localStorage.getItem('al_maria'));
+        // if(maria !== null) {
+        //     console.log(maria.nombre);
+        // }
+
+        // const alumnos = JSON.parse (localStorage.getItem('alumnos'));
+        // if(alumnos !== null) {
+        //    alumnos.forEach((al) => console.log(al));
+        // }
+
+     
+        
+    </script>
+</body>
+</html>
