@@ -1,0 +1,53 @@
+/* TAGs */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(15, 15, 15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+section{
+    display: flex;
+    flex-direction:row;
+}
+
+/* CLASSes */
+
+.card{
+    font-family: "Nunito", sans-serif;
+    display: inline-block;
+    border: 1px solid rgb(62, 62, 62);
+    border-radius: 10px;
+    background: url('./images/libros.jpg');
+    padding: 25px;
+    margin: 20px;
+    height: 300px;
+    width: 200px;
+}
+
+.card > h3{
+    font-size: 30px;
+    display: flex;
+    color: rgb(39, 38, 38);
+    justify-content: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.card > img {
+    width: 100%;
+    height: 250px;
+    opacity: 0.9;
+    z-index: 1;
+}
+
+.card > img:hover {
+    opacity: 1;
+}
