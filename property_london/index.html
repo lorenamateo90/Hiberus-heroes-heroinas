@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio principal</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+ <body>
+    <h1>Property for sale in London</h1>
+    <form action="#" method="post">
+            <div class="tripleInput">
+                <div>
+                    <div class="containerOption">
+                            <label for="searchRadius">Search radius:</label>
+                            <div class="selectWrapper">
+                                <select  name="searchRadius" id="searchRadius">
+                                    <option disabled selected>This area only</option>
+                                    <option value="0">10 miles</option>
+                                    <option value="1">50 miles</option>
+                                    <option value="2">100 miles</option>
+                                </select>
+                            </div>
+                    </div>
+                    <div>
+                        <div class="containerOption">
+                        <label for="priceRange">Price range:</label>
+                        <div class="selectWrapper">
+                            <select name="priceRange" id="priceRange">
+                                <option disabled selected>Any</option>
+                                <option value="0">1 mill</option>
+                                <option value="1">2 mill</option>
+                                <option value="2">3 mill</option>
+                            </select>
+                        </div>
+                     </div>  
+                     <div class="containerOption">
+                        <label for="bedrooms">Bedrooms:</label>
+                        <div class="selectWrapper">
+                            <select name="bedrooms" id="bedrooms">
+                                <option  disabled selected>Any</option>
+                                <option value="single">Single</option>
+                                <option value="twin">Twin</option>
+                                <option value="double">Double</option>
+                            </select>
+                        </div>
+                    </div>     
+                    </div>
+                </div>
+            </div>
+            <div class="tripleInput">
+                <div>
+                    <div class="containerOption">
+                        <label for="propertyType">Property type:</label>
+                        <div class="selectWrapper">
+                            <select name="propertyType" id="propertyType">
+                                <option disabled selected>Any</option>
+                                <option value="singleFamilyHome">Single-Family Home</option>
+                                <option value="bungalow">Bungalow</option>
+                                <option value="ranch">Ranch</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="containerOption">
+                            <label for="addedToSite">Added to site:</label>
+                            <div class="selectWrapper">
+                                <select name="addedToSite" id="addedToSite">
+                                    <option disabled selected>Anytime</option>
+                                    <option value="today">Today</option>
+                                    <option value="lastWeek">Last week</option>
+                                    <option value="lastMonth">Last month</option>
+                                </select>
+                            </div>                                     
+                        </div>
+                        <label>
+                            <input type="checkbox" name="cb-terminosservicio" required>Include sold properties
+                        </label> 
+                    </div>
+                </div>
+                <button type="submit">Find properties</button>
+            </div>                    
+    </form>
+ </body>
+ </html>
