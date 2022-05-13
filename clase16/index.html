@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos y clases</title>
+</head>
+<body>
+    <script type="module"> 
+
+        import Alumno from "./scripts/alumno.js";
+
+        let alumnos = null; //var global
+        let suspendidos = null; //var global
+        const NOTA_CORTE = 8;
+
+        function cargarAlumnos(...als){
+            const alTemp = new Array(); //var local
+            als.forEach(al => alTemp.push(al));
+            return alTemp;
+        }
+
+        function listarAlumnosSuspendidos(als){
+            als.forEach(al => console.log( "Suspendido: ",`${al.nombre} ${al.apellido} con una nota de ${al.nota}` ));
+           
+        }
+        //1º forma
+        // function evaluarAlumnos(als){
+        //     //var local
+        //     const alumnosSuspendidos = [];
+        //     for (const al of als) {
+        //         if (al.nota < NOTA_CORTE){
+        //             alumnosSuspendidos.push(al);
+        //         }
+        //     }
+
+        //     return alumnosSuspendidos;
+        // }
+
+        //2º forma
+        function evaluarAlumnos(als){
+            return als.filter(al => al.nota < NOTA_CORTE);
+        }
+
+        const juan = new Alumno("111111H", "Juan", "Lopez", 5, 7.5);
+        const maria = new Alumno("222222H", "Maria", "Gomez", 5, 7.5);
+        const silvia = new Alumno("333333H", "Silvia", "Garcia", 5, 4.4);
+
+        juan.añadirAsignatura("Mates");
+        juan.añadirAsignatura("Literatura");
+        juan.añadirAsignatura("Fisica");
+        juan.listarAsignaturas();
+        
+        //1º forma
+        alumnos = cargarAlumnos(juan, maria, silvia);
+        console.log(alumnos);
+
+        //2º forma
+        // cargarAlumnos(new Alumno(""), new Alumno(""));
+
+        try {
+            suspendidos = evaluarAlumnos(alumnos);
+            listarAlumnosSuspendidos(suspendidos)
+        } catch (err) {
+            console.log(err);
+        } finally {
+            console.log("Final del proceso de evaluacion");
+        }
+    
+
+    </script>
+</body>
+</html>
