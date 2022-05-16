@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gimnasio</title>
+    </head>
+    <body>
+        <form>
+            <legend>Matricula GYM</legend>
+            <p>
+                <label>DNI:</label>
+                <input type="text" id="dni" placeholder="Intro dni">
+            </p>
+            <p>
+                <label>Nombre:</label>
+                <input type="text" id="nombre">
+            </p>
+            <p>
+                <label>Apellido:</label>
+                <input type="text" id="apellido">
+            </p>
+            <p>
+                <label>Seleccionar gym</label>
+                <select id="gyms">
+                    <option></option>
+                </select>
+            </p>
+
+            <button id="crear_socio">Crear socio</button>
+        </form>
+        
+        <script type="module">
+            import Gimnasio from "./scripts/gimnasio.js";
+            import Socio from "./scripts/socio.js";
+
+            //crear un gimnasio en Barcelona
+            const barnaGym = new Gimnasio(45,"Barcelona");
+            //crear un gimnasio en Alicante
+            const alicanteGym = new Gimnasio(35,"Alicante");
+
+            const gyms = new Map();
+            gyms.set("Alicante", alicanteGym);
+            gyms.set("Barna", barnaGym);
+
+            function loadGyms(gimnasios) {
+                
+                //identrificar el elemento select
+                const gymsSelect = document.getElementById("gyms");
+                //por cada gymn, crear un option con esa info
+                if (gymsSelect) {
+                    gimnasios.forEach((valor, clave) => {
+                        const opt = document.createElement("option");
+                        opt.value = clave
+                        opt.innerText = clave
+                        gymsSelect.appendChild(opt); 
+                    });
+                }
+            
+            }
+
+
+            function recuperarDatos() {
+                //necesito formulario?
+                //necesito solo los campos de texto?
+                return  {
+                            dni: document.querySelector("#dni")?.value,
+                            nombre: document.querySelector("#nombre")?.value,
+                            apellido: document.querySelector("#apellido")?.value,
+                            gym: document.querySelector("#gyms")?.value
+                        };      
+            }
+
+            function vincularEventoBoton() {
+                //buscar el boton x id
+                
+                const botonCrearSocio = document.getElementById("crear_socio")
+
+                //asociarle el evento click
+                if (botonCrearSocio) {
+                    botonCrearSocio.addEventListener("click", (ev) => {
+                        ev.preventDefault();
+                        const data = recuperarDatos()
+                        console.log("DATA:", data);
+                        if (data) {
+                            const socio = new Socio(data.dni, data.nombre, data.apellido, `G${data.dni}`);
+                            //const socio = new Socio(data);
+                            const gym = gyms.get(data.gym);
+                            
+                            /*
+                            if (gym)
+                            {
+                                matricularSocio(socio,gym);
+                                gym.listarSocios();
+                            } 
+                            */
+                            gym && matricularSocio(socio,gym) && gym.listarSocios();
+                           //gym && gym.listarSocios();                            
+                            
+                        }
+                    })
+                }
+            }
+
+            function matricularSocio(socio, gym) {
+                let resOp = null 
+                if (gym && socio) {
+                    try{
+                        gym.matricular(socio);
+                        resOp = true;
+                    } catch (err) {
+                        resOp = false;
+                    }
+                }
+                return resOp;
+            }
+
+            loadGyms(gyms);
+
+            
+            vincularEventoBoton(alicanteGym);
+            
+
+            
+
+        </script>
+    </body>
+</html>
