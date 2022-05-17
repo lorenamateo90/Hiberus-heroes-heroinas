@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asincronía</title>
+</head>
+<body>
+    <script type="module">
+        import Data from "./data.js";
+
+        let usuarios = null; 
+
+        //1.Basado en promesas + callbacks
+
+        // function tratarUsuarios(users){
+        //     console.log(users);
+        // }
+
+        // const data = new Data("https://jsonplaceholder.typicode.com");
+        // data.getUsers((users) => tratarUsuarios(users));
+        //console.log (usuarios); //si no se gestiona la asincronia, se hará antes de tener los datos enotnces no nos vale.
+        
+
+        //2.Basado en solo promesas
+
+         function tratarUsuarios(users){
+            console.log(users);
+        }
+
+        const data = new Data("https://jsonplaceholder.typicode.com");
+
+        // data.getUsers()
+        // .then(response => response.json())
+        // .then(json => tratarUsuarios(json))
+
+
+        //3. Async /await
+        usuarios = await data.getUsers();
+        tratarUsuarios(usuarios);
+
+
+        //promesas
+        function obtenerDatos(){
+            return new Promise((resolve, reject) => {
+                resolve([1,2,3,4]); //se resuelve con exito
+                //reject("ha ocurrido un error!") // no se ha resuelto
+            })
+        }
+
+        // obtenerDatos()
+
+        // .then(function(data){ //recogemos el valor de lo que se ha resuelto con exito antes
+        //     data.forEach(n => console.log(n))
+        // }, function(error){
+        //     console.log(error); // si no pues error
+        // })
+
+        obtenerDatos()
+            .then(data => data.forEach( n => console.log(n))) //esto es como un try catch pero en las promesas
+            .catch((err) => console.log(err))
+
+
+
+    </script>
+</body>
+</html>
